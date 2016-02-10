@@ -1,0 +1,15 @@
+---
+- name: Install prerequsites
+  apt: name={{ item }} update_cache=yes cache_valid_time=3600
+  with_items:
+    - git
+    - python-pip
+    
+- name: Clone the PyTasc repository
+  git:
+    repo:     "https://github.com/hcpss-banderson/py-tasc.git"
+    version:  "{{ pytasc_version }}"
+    dest:     "{{ pytasc_destination }}"
+    
+- name: Install dependencies
+  pip: requirements={{ pytasc_destination }}/requirements.txt

@@ -1,0 +1,16 @@
+---
+dependencies: []
+
+galaxy_info:
+  author:       hcpss-banderson
+  description:  PyTasc
+  company:      HCPSS
+  license: "license (GPL-3)"
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  categories:
+    - development
+    - web
