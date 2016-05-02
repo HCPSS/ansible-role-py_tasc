@@ -7,8 +7,6 @@
   pip: name={{ item }}
   with_items:
     - requests
-    - shutil
-    - StringIO
     
 - name: Clone the PyTasc repository
   git:
