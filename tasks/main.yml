@@ -1,11 +1,14 @@
 ---
-- name: Find out if git is installed
-  command: dpkg -s git
-  register: git_check
-
-- name: Install prerequsites
-  apt: name=git update_cache=yes
-  when: git_check.rc == 1
+- name: Install apt prerequsites
+  apt: name={{ item }} update_cache=yes
+  with_items: ["git", "python-pip"]
+  
+- name: Intall pip requirements
+  pip: name={{ item }}
+  with_items:
+    - requests
+    - shutil
+    - StringIO
     
 - name: Clone the PyTasc repository
   git:
